@@ -10,9 +10,6 @@ you can use for pretty much whatever.
 Feedback, bug reports, and comments are not only welcome, but strongly encouraged :)
 
 
-	Demo Images:
-		Unsplash (unsplash.com)
-
 	Icons:
 		Font Awesome (fontawesome.io)
 
