@@ -132,10 +132,16 @@ a:hover { color: var(--accent-2); }
 }
 
 #hero .hero-banner {
-  height: clamp(140px, 22vh, 240px);
+  height: clamp(190px, 27vh, 300px);
   background: #0b1220 url("../img/hero-banner.jpg") center center;
   background-size: cover;
   position: relative;
+}
+
+@media (min-aspect-ratio: 5/2) {
+  #hero .hero-banner {
+    height: clamp(260px, 38vh, 340px);
+  }
 }
 
 #hero .hero-banner:after {
