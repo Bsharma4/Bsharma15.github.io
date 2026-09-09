@@ -1,0 +1,296 @@
+/*--------------------------------------------------------------
+# Modern theme overrides
+# Loaded after style.css — refines color, type and surfaces for a
+# cleaner, more professional look without touching the base
+# template's layout/structure.
+--------------------------------------------------------------*/
+
+:root {
+  --ink-900: #0b1220;
+  --ink-800: #121a2b;
+  --ink-700: #1b2436;
+  --accent: #2f6fed;
+  --accent-2: #22d3ee;
+  --accent-grad: linear-gradient(135deg, #2f6fed 0%, #22d3ee 100%);
+  --text-heading: #0f1b34;
+  --text-body: #384154;
+  --text-muted: #6b7385;
+  --surface: #ffffff;
+  --surface-muted: #f4f7fc;
+  --border: #e6eaf2;
+  --shadow-sm: 0 1px 2px rgba(15, 27, 52, 0.06), 0 1px 1px rgba(15, 27, 52, 0.04);
+  --shadow-md: 0 10px 30px -12px rgba(15, 27, 52, 0.18);
+  --radius: 14px;
+}
+
+body {
+  font-family: "Inter", "Open Sans", sans-serif;
+  color: var(--text-body);
+  background: var(--surface-muted);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-heading);
+}
+
+a { color: var(--accent); }
+a:hover { color: var(--accent-2); }
+
+/*--------------------------------------------------------------
+# Sidebar / header
+--------------------------------------------------------------*/
+#header {
+  background: linear-gradient(180deg, var(--ink-900) 0%, var(--ink-800) 100%);
+  border-right: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+#header .profile img {
+  width: 128px;
+  height: 128px;
+  object-fit: cover;
+  border: 4px solid var(--ink-800);
+  box-shadow: 0 0 0 3px rgba(47, 111, 237, 0.55), var(--shadow-md);
+}
+
+#header .profile h1 {
+  font-family: "Inter", "Poppins", sans-serif;
+  letter-spacing: 0.2px;
+  margin-top: 14px;
+}
+
+#header .profile .social-links a {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#header .profile .social-links a:hover {
+  background: var(--accent-grad);
+  border-color: transparent;
+  transform: translateY(-2px);
+}
+
+.nav-menu a,
+.nav-menu a:focus {
+  border-radius: 10px;
+  border-left: 3px solid transparent;
+  color: #9aa3b8;
+}
+
+.nav-menu a:hover,
+.nav-menu .active,
+.nav-menu .active:focus,
+.nav-menu li:hover > a {
+  background: rgba(47, 111, 237, 0.12);
+  border-left-color: var(--accent-2);
+  color: #fff;
+}
+
+.nav-menu a:hover i,
+.nav-menu .active i,
+.nav-menu .active:focus i,
+.nav-menu li:hover > a i {
+  color: var(--accent-2);
+}
+
+/*--------------------------------------------------------------
+# Hero
+--------------------------------------------------------------*/
+#hero {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(47, 111, 237, 0.35), transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(34, 211, 238, 0.25), transparent 45%),
+    linear-gradient(160deg, #0b1220 0%, #111a2e 55%, #0b1220 100%);
+}
+
+#hero:before {
+  background:
+    linear-gradient(rgba(11, 18, 32, 0.15), rgba(11, 18, 32, 0.15)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 64px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 64px);
+}
+
+#hero h1 {
+  font-family: "Inter", "Raleway", sans-serif;
+  font-weight: 800;
+  letter-spacing: -1px;
+  background: linear-gradient(135deg, #ffffff 0%, #c9d6f5 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#hero p {
+  font-family: "Inter", "Poppins", sans-serif;
+  font-weight: 500;
+  color: #cbd5f0;
+}
+
+#hero p span {
+  color: #fff;
+  border-bottom-color: var(--accent-2);
+}
+
+/*--------------------------------------------------------------
+# Section titles
+--------------------------------------------------------------*/
+.section-title h2 {
+  color: var(--text-heading);
+  font-family: "Inter", "Raleway", sans-serif;
+  font-weight: 800;
+}
+
+.section-title h2::after {
+  width: 46px;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--accent-grad);
+}
+
+.section-bg { background: var(--surface-muted); }
+
+/*--------------------------------------------------------------
+# About
+--------------------------------------------------------------*/
+.about img.img-fluid {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+}
+
+.about .content h3 {
+  color: var(--text-heading);
+  font-family: "Inter", "Raleway", sans-serif;
+}
+
+.about .content {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 30px;
+  box-shadow: var(--shadow-sm);
+}
+
+.about .content ul i { color: var(--accent); }
+
+/*--------------------------------------------------------------
+# Skills
+--------------------------------------------------------------*/
+.skills .progress {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px 18px;
+  height: auto;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.skills .progress .skill {
+  color: var(--text-heading);
+  letter-spacing: 0.3px;
+}
+
+.skills .progress .skill .val { color: var(--accent); }
+
+.skills .progress-bar-wrap {
+  background: var(--surface-muted);
+  height: 8px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.skills .progress-bar {
+  height: 8px;
+  border-radius: 8px;
+  background: var(--accent-grad);
+}
+
+/*--------------------------------------------------------------
+# Resume
+--------------------------------------------------------------*/
+.resume .resume-title {
+  color: var(--text-heading);
+  font-family: "Inter", "Raleway", sans-serif;
+  display: inline-block;
+  padding-bottom: 6px;
+  border-bottom: 3px solid var(--accent-2);
+}
+
+.resume .resume-item {
+  border-left: 2px solid var(--border);
+  background: var(--surface);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 16px 20px 18px;
+  margin-bottom: 12px;
+  margin-top: 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.resume .resume-item::before {
+  background: var(--surface);
+  border-color: var(--accent);
+}
+
+.resume .resume-item h4 {
+  color: var(--text-heading);
+  text-transform: none;
+  font-size: 17px;
+}
+
+.resume .resume-item h5 {
+  background: rgba(47, 111, 237, 0.1);
+  color: var(--accent);
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.resume .resume-item a {
+  font-weight: 600;
+}
+
+/*--------------------------------------------------------------
+# Contact
+--------------------------------------------------------------*/
+.contact .info {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.contact .info > div {
+  flex: 1 1 230px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin: 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.contact .info i {
+  background: var(--accent-grad);
+  color: #fff;
+  border-radius: 10px;
+}
+
+.contact .info iframe {
+  flex: 1 1 100%;
+  margin-top: 4px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+/*--------------------------------------------------------------
+# Misc
+--------------------------------------------------------------*/
+.back-to-top {
+  background: var(--accent-grad);
+  box-shadow: var(--shadow-md);
+}
+
+footer#footer .copyright {
+  color: var(--text-muted);
+}
