@@ -1,17 +1,16 @@
 import { useMemo, useRef } from "react";
 import { Canvas, useFrame, type ThreeElements } from "@react-three/fiber";
 import * as THREE from "three";
+import { useIsMobile } from "../hooks/useReducedMotion";
 
-const NODE_COUNT = 140;
-
-function NodeNetwork({ mouse }: { mouse: React.RefObject<{ x: number; y: number }> }) {
+function NodeNetwork({ mouse, nodeCount }: { mouse: React.RefObject<{ x: number; y: number }>; nodeCount: number }) {
   const groupRef = useRef<THREE.Group>(null);
   const pointsRef = useRef<THREE.Points>(null);
   const linesRef = useRef<THREE.LineSegments>(null);
 
   const { positions, linePositions } = useMemo(() => {
     const pts: THREE.Vector3[] = [];
-    for (let i = 0; i < NODE_COUNT; i++) {
+    for (let i = 0; i < nodeCount; i++) {
       pts.push(
         new THREE.Vector3(
           (Math.random() - 0.5) * 14,
@@ -33,7 +32,7 @@ function NodeNetwork({ mouse }: { mouse: React.RefObject<{ x: number; y: number 
       }
     }
     return { positions, linePositions: new Float32Array(lineVerts) };
-  }, []);
+  }, [nodeCount]);
 
   useFrame((state) => {
     if (!groupRef.current) return;
@@ -79,6 +78,8 @@ function RotatingCore(props: ThreeElements["mesh"]) {
 
 export default function HeroScene({ reduced }: { reduced: boolean }) {
   const mouse = useRef({ x: 0, y: 0 });
+  const isMobile = useIsMobile();
+  const nodeCount = isMobile ? 70 : 140;
 
   function handlePointerMove(e: React.PointerEvent<HTMLDivElement>) {
     const { innerWidth, innerHeight } = window;
@@ -98,7 +99,7 @@ export default function HeroScene({ reduced }: { reduced: boolean }) {
         gl={{ antialias: true, alpha: true }}
       >
         <ambientLight intensity={0.6} />
-        {!reduced && <NodeNetwork mouse={mouse} />}
+        {!reduced && <NodeNetwork mouse={mouse} nodeCount={nodeCount} />}
         {reduced && <NodeNetworkStatic />}
         <RotatingCore position={[0, 0, -1]} />
       </Canvas>
